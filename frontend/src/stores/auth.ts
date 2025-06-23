@@ -7,6 +7,8 @@ import router from '@/router';
 export const useAuthStore = defineStore('auth', () => {
     const user = ref<User | null>(null);
     const token = ref<string | null>(null);
+    
+    token.value = localStorage.getItem('token');
 
     const login = async (email: string, password: string) => {
         try {
